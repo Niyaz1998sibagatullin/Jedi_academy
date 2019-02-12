@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тест</title>
+</head>
+<body >
+<font >
+    <center>
+    <form method="POST" action="test" >{% csrf_token %}
+        {% for Question in Questions %}
+            <legend><p><b> {{ Question.text }}</b></p></legend>
+            {% for Answer in Answers %}
+            {% if Answer.question == Question %}
+            <p><input name={{Question.id}} type="radio" value={{Answer.id}} checked> {{ Answer.text }} </p>
+            {% endif%}
+            {% endfor %}
+        {% endfor %}
+        <input name="candidate_id" type="hidden" value={{candidate_id}}>
+        <input type="submit" value="дальше" >
+    </form>
+    </center>
+</font>
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список джедаев</title>
+</head>
+<body >
+<font >
+    <form method="POST" action="jedicand">{% csrf_token %}
+        <center>
+            <table>
+                {% for j in jedi %}
+                    <p><h3>{{ j.name }}</h3> количество падаванов: {{ j.candidate__count }}</p>
+                {% endfor %}
+            </table>
+        </center>
+    </form>
+</font>
+</body>
+</html>

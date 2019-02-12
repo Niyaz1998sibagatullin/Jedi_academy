@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание нового кандидата</title>
+
+</head>
+<body  >
+<font >
+    <center>
+    <form method="POST" action="candidate">{% csrf_token %}
+        <table>
+            <tr>
+                <td colspan="2" align="center">
+                    <h2>Заполните форму</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Планета</label><br>
+                </td>
+                <td>
+                    <select id="p" name="planet">
+                        {% for p in planet %}
+                        <option value={{p.id}}>{{ p.name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Email</label><br>
+                </td>
+                <td>
+                    <input type="text" name="email" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Имя</label><br>
+                </td>
+                <td>
+                    <input type="text" name="name" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Возраст</label><br>
+                </td>
+                <td>
+                    <input type="number" name="age" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Далее" >
+                </td>
+            </tr>
+        </table>
+    </form>
+</center>
+</font>
+</body>
+</html>

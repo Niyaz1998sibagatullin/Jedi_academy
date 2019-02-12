@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список кандидатов в падаваны</title>
+</head>
+<body >
+<font >
+    <form method="POST" action="jedicand">{% csrf_token %}
+        <center>
+            <input type="hidden" name="selected_jedi" value="{{selected_jedi}}">
+            <h2>Доступные Кандидаты</h2>
+            <table>
+                <tr><th>Имя</th><th>Возраст</th><th>тест</th><th>email</th></tr>
+                {% csrf_token %}
+                {% for candidate in list_candidate %}
+                <tr>
+                    <td>{{ candidate.name }}</td>
+                    <td>{{ candidate.age }}</td>
+                    <td><a href="answertest/{{candidate.id}}/">Резултат</a></td>
+                    <td>{{ candidate.email }}</td>
+                    <td><a href="send/{{master_jedi}}/{{candidate.id}}/">Взять в падаваны</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+    </form>
+</font>
+</body>
+</html>

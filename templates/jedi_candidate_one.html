@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список джедаев(более 1-го падавана)</title>
+</head>
+<body >
+<font >
+    <form method="POST" action="jedicand">{% csrf_token %}
+        <center>
+            <table>
+               <h3>Список джедаев(более 1-го падавана)</h3>
+                {% for j in jedi %}
+                    <h3>{{ j|linebreaks }}</h3>
+                {% endfor %}
+            </table>
+        </center>
+    </form>
+</font>
+</body>
+</html>

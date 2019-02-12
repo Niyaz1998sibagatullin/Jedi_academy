@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Выберите Джедая</title>
+</head>
+<body >
+<font >
+    <form method="POST" action="jedicand">{% csrf_token %}
+        <center>
+            <tr>
+                <td colspan="2" align="center">
+                    <h2>Выберите Джедая</h2>
+                </td>
+            </tr>
+            <table>
+                <tr><th colspan="3">
+                    <select id="djs" name="selected_jedi">
+                        {% for jedi in all_jedi %}
+                        <option value={{jedi.id}}>{{ jedi.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Выбрать" >
+                </tr></th>
+            </table>
+        </center>
+    </form>
+</font>
+</body>
+</html>
